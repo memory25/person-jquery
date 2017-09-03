@@ -34,14 +34,14 @@ $(document).ready(function() {
         /*下滑後頂部導覽固定*/
 
         /*移動畫面 頂部導覽亮色*/
-        if($(document).scrollTop()+0.5 < $("header").height()){
+        if($(document).scrollTop()+1 < $("header").height()){
             $("#linkHome").addClass("linkColor2");
         }else{
             $("#linkHome").removeClass("linkColor2");
         }
         $("section").each(function(){
             /*元素所在高度 + 元素的高度   = 元素所在的底部之高度 +1為小數問題*/
-            if($(document).scrollTop()+0.5 >= $(this).offset().top && $(document).scrollTop()+0.5 < ($(this).offset().top + $(this).outerHeight())){
+            if($(document).scrollTop()+1 >= $(this).offset().top && $(document).scrollTop()+1 < ($(this).offset().top + $(this).outerHeight())){
                 $($(this).data("navtopchoose")).addClass("linkColor2");
                 console.log( $(this).offset().top + $(this).outerHeight())
             }else{
