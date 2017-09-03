@@ -461,6 +461,15 @@ footer a {
 	#navTop a:not(#linkHome) {
 		padding: 8px 0 8px 14%;
 	}
+	#personal, #portfolio, #skills, #contact {
+		padding: 25px 0 50px 0;
+	}
+	.personalHead {
+		margin: 50px 0 25px 0;
+	}
+	.portfolioHead, .skillHead, .contactHead {
+		margin: 0px 0 25px 0;
+	}
 
 	.portTable {
 		width: 90%;
