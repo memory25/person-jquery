@@ -53,7 +53,7 @@ $(document).ready(function() {
         $(".scrollFadeIn").each(function(){
             /*螢幕下拉到頁面一半後 淡入*/
             if($(document).scrollTop() >= $(this).parent().offset().top - windowHeight/2){
-                /*元素高位置(非頁面高)  - 標題大小+標題外距   - 窗口一半高度*/
+                /*元素高位置(非頁面高)   - 窗口一半高度*/
                 $(this).addClass("scrollFadeIn2");
             }
         })
