@@ -427,6 +427,10 @@ footer a {
 		padding: 8px 0 8px 14%;
 	}
 
+	#navTop a:hover{
+		color: rgb(7, 1, 51);
+	}
+
 	.portTable {
 		width: 100%;
 		display: block;
