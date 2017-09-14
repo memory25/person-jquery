@@ -58,10 +58,7 @@ $(document).ready(function() {
             }
         })
 
-/*        if($(document).scrollTop() >= $(".personalMain").offset().top -140 - windowHeight/2){
-            $(".bling").css({"box-shadow":"0px 0px 180px 400px #FFF"});
-        }
-*/
+
         /*skills動畫*/
         if($(document).scrollTop() >= $("#skills").offset().top - $("#skills").height() / 2) {
             /*使用者移動畫面超過 skills畫面一半時觸發
