@@ -92,11 +92,15 @@ q:after {
 }
 
 
+
+
 /* remember to define focus styles! */
 
 :focus {
     outline: 0;
 }
+
+
 
 
 /* remember to highlight inserts somehow! */
@@ -108,6 +112,8 @@ ins {
 del {
     text-decoration: line-through;
 }
+
+
 
 
 /* tables still need 'cellspacing="0"' in the markup */
@@ -124,6 +130,8 @@ html {
 body {
     background: rgb(1, 22, 51);
 }
+
+
 
 
 /*頂部導覽開始*/
@@ -200,6 +208,8 @@ body {
 }
 
 
+
+
 /*頂部導覽結束*/
 
 .imgTemp {
@@ -213,6 +223,8 @@ body {
 img {
     max-width: 100%;
 }
+
+
 
 
 /*首頁頁面*/
@@ -237,11 +249,11 @@ header {
 
 .myNameText h1 {
     font-size: 26px;
-    margin: 10px 0 5px 0;
+    margin: 10px 0 15px 0;
 }
 
 .myNameText h2 {
-    font-size: 22px;
+    font-size: 16px;
 }
 
 .myNameText h1,
@@ -249,7 +261,7 @@ header {
     letter-spacing: 1px;
     height: 26px;
     font-weight: bolder;
-    background: linear-gradient(-4deg, rgb(255,255,255) 40%, rgb(111,132,161) 50%,rgb(255,255,255) 60%);
+    background: linear-gradient(-4deg, rgb(255, 255, 255) 40%, rgb(111, 132, 161) 50%, rgb(255, 255, 255) 60%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -303,6 +315,8 @@ header {
 }
 
 
+
+
 /*得先轉回正 座標軸變回後 才可以調整移動上下*/
 
 .jumpImg::before,
@@ -317,6 +331,8 @@ header {
     -webkit-transform: rotate(-45deg) translateY(5px) rotate(45deg);
     transform: rotate(-45deg) translateY(5px) rotate(45deg);
 }
+
+
 
 
 /*偽元素本身就會跟著本體一起移動*/
@@ -356,6 +372,8 @@ header {
 }
 
 
+
+
 /*首頁頁面結束*/
 
 
@@ -369,10 +387,75 @@ header {
     margin: 100px 0 100px 0;
 }
 
+.personalMain {
+    padding: 0 120px;
+}
+
+.personalImg, .personalAboutme {
+    display: inline-block;
+}
+
+.personalImg {
+    width: 20%;
+    vertical-align: top;
+    position: relative;
+    min-width: 250px;
+    -webkit-transform: translate(-120%,0) scale(0.1);
+            transform: translate(-120%,0) scale(0.1);
+    -webkit-transition: 2s -webkit-transform linear;
+    transition: 2s -webkit-transform linear;
+    transition: 2s transform linear;
+    transition: 2s transform linear, 2s -webkit-transform linear;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.perImg-1 {
+    -webkit-transform: translate(-100%,0);
+            transform: translate(-100%,0);
+    -webkit-transition: 2s linear transform,1.3s opacity linear;
+    transition: 2s linear transform,1.3s opacity linear;
+}
+
+.perImg-2, .perImg-3, .perImg-4, .perImg-5, .perImg-6{
+    position: absolute;
+    top: 0;
+    -webkit-transition: 2s linear transform,1.3s opacity linear;
+    transition: 2s linear transform,1.3s opacity linear;
+}
+.perImg-2 {
+    -webkit-transform: translate(0%,0%);
+            transform: translate(0%,0%);
+}
+.perImg-3 {
+    -webkit-transform: translate(100%,0%);
+            transform: translate(100%,0%);
+}
+.perImg-4 {
+    -webkit-transform: translate(200%,0%);
+            transform: translate(200%,0%);
+}
+.perImg-5 {
+    -webkit-transform: translate(300%,0%);
+            transform: translate(300%,0%);
+}
+.perImg-6 {
+    -webkit-transform: translate(400%,0%);
+            transform: translate(400%,0%);
+}
+
+
+.personalAboutme {
+    width: 70%;
+}
+
 #personal p {
     font-size: 2.2rem;
-    padding: 0 20%;
+    padding: 0 5%;
+    text-align: left;
+    line-height: 2.8rem;
 }
+
 
 #personal .bling {
     position: absolute;
@@ -389,6 +472,8 @@ header {
     -webkit-transition: 20s all;
     transition: 20s all;
 }
+
+
 
 
 /*個人頁面結束*/
@@ -425,7 +510,9 @@ header {
     table-layout: fixed;
     font-size: 0;
 }
-
+.portTable:nth-of-type(2) {
+    width: 50%;
+}
 .portbox {
     display: table-cell;
     width: 100%;
@@ -481,6 +568,8 @@ header {
 }
 
 
+
+
 /*作品頁面結束*/
 
 
@@ -531,13 +620,20 @@ header {
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
     -webkit-transition: 2.5s all;
-    transition: 2.5s all;
+    -webkit-transition: 2.5s all linear;
+    transition: 2.5s all linear;
 }
 
 .scrollFadeIn2 {
     opacity: 1;
     -webkit-transform: translateY(0);
     transform: translateY(0);
+}
+
+
+.scrollFadeLToR {
+    -webkit-transform: translate(0,0) scale(1);
+            transform: translate(0,0) scale(1);
 }
 
 
@@ -568,6 +664,8 @@ footer {
 footer a {
     color: rgb(200, 200, 200);
 }
+
+
 
 
 /*聯絡頁面結束*/
@@ -611,6 +709,11 @@ footer a {
     .personalHead {
         margin: 50px 0 25px 0;
     }
+
+    .personalAboutme {
+        width: 100%;
+    }
+
     .portfolioHead,
     .skillHead,
     .contactHead {
@@ -618,9 +721,10 @@ footer a {
     }
 
     .portTable {
-        width: 90%;
+        width: 100%;
         display: block;
     }
+
     .portbox {
         width: 100%;
         height: 150px;
@@ -656,11 +760,6 @@ footer a {
 }
 
 
-/*RWD*/
 
-#test {
-	background: green;
-	width: 50px;
-	height: 50px;
-	border-radius: 100%;
-}
+
+/*RWD*/
