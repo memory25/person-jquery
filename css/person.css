@@ -113,7 +113,7 @@ del {
     text-decoration: line-through;
 }
 
-
+/*å¥½*/
 
 
 /* tables still need 'cellspacing="0"' in the markup */
@@ -132,9 +132,20 @@ body {
 }
 
 
+::-webkit-scrollbar {
+    width: 9px;
+    background: linear-gradient(to top, rgb(1, 22, 51), rgb(0, 0, 0));
+}
+::-webkit-scrollbar-thumb {
+    border: 4px outset rgb(1, 22, 51);
+    background: repeating-linear-gradient(to top,#FFF 10%,rgb(1, 22, 51) 15%, #FFF 20%);
+    border-radius: 10px;
+    box-shadow: 150px 0 400px 100px #FFF;
+}
 
 
-/*í”²¿Œ§Ó[é_Ê¼*/
+
+/*é ‚éƒ¨å°è¦½é–‹å§‹*/
 
 #navTop {
     width: 100%;
@@ -210,7 +221,7 @@ body {
 
 
 
-/*í”²¿Œ§Ó[½YÊø*/
+/*é ‚éƒ¨å°è¦½çµæŸ*/
 
 .imgTemp {
     display: inline-block;
@@ -227,7 +238,7 @@ img {
 
 
 
-/*Ê×í“í“Ãæ*/
+/*é¦–é é é¢*/
 
 header {
     position: relative;
@@ -317,7 +328,7 @@ header {
 
 
 
-/*µÃÏÈŞD»ØÕı ×ù˜ËİS×ƒ»Øáá ²Å¿ÉÒÔÕ{ÕûÒÆ„ÓÉÏÏÂ*/
+/*å¾—å…ˆè½‰å›æ­£ åº§æ¨™è»¸è®Šå›å¾Œ æ‰å¯ä»¥èª¿æ•´ç§»å‹•ä¸Šä¸‹*/
 
 .jumpImg::before,
 .jumpImg::after {
@@ -335,7 +346,7 @@ header {
 
 
 
-/*‚ÎÔªËØ±¾Éí¾Í•ş¸úÖø±¾ówÒ»ÆğÒÆ„Ó*/
+/*å½å…ƒç´ æœ¬èº«å°±æœƒè·Ÿè‘—æœ¬é«”ä¸€èµ·ç§»å‹•*/
 
 @-webkit-keyframes aniJumpImg {
     30% {
@@ -374,10 +385,10 @@ header {
 
 
 
-/*Ê×í“í“Ãæ½YÊø*/
+/*é¦–é é é¢çµæŸ*/
 
 
-/*‚€ÈËí“Ãæé_Ê¼*/
+/*å€‹äººé é¢é–‹å§‹*/
 
 #personal {
     position: relative;
@@ -387,9 +398,6 @@ header {
     margin: 100px 0 100px 0;
 }
 
-.personalMain {
-    padding: 0 120px;
-}
 
 .personalImg, .personalAboutme {
     display: inline-block;
@@ -413,15 +421,15 @@ header {
 .perImg-1 {
     -webkit-transform: translate(-100%,0);
             transform: translate(-100%,0);
-    -webkit-transition: 2s linear transform,1.3s opacity linear;
-    transition: 2s linear transform,1.3s opacity linear;
+    -webkit-transition: 2s linear transform,1.2s opacity linear;
+    transition: 2s linear transform,1.2s opacity linear;
 }
 
 .perImg-2, .perImg-3, .perImg-4, .perImg-5, .perImg-6{
     position: absolute;
     top: 0;
-    -webkit-transition: 2s linear transform,1.3s opacity linear;
-    transition: 2s linear transform,1.3s opacity linear;
+    -webkit-transition: 2s linear transform,1.2s opacity linear;
+    transition: 2s linear transform,1.2s opacity linear;
 }
 .perImg-2 {
     -webkit-transform: translate(0%,0%);
@@ -449,12 +457,26 @@ header {
     width: 70%;
 }
 
+.personalAboutme span:nth-of-type(1) {
+    font-size: 5rem;
+}
+.personalAboutme span:nth-of-type(2) {
+    font-weight: bolder;
+}
+
 #personal p {
+    font-family: Microsoft JhengHei;
     font-size: 2.2rem;
     padding: 0 5%;
-    text-align: left;
+    text-align:justify;
     line-height: 2.8rem;
+    letter-spacing: 2px;
 }
+
+#personal p:nth-of-type(2),#personal p:nth-of-type(3) {
+    margin-top: 20px;
+}
+
 
 
 #personal .bling {
@@ -476,18 +498,17 @@ header {
 
 
 
-/*‚€ÈËí“Ãæ½YÊø*/
+/*å€‹äººé é¢çµæŸ*/
 
 
-/*×÷Æ·í“Ãæé_Ê¼*/
+/*ä½œå“é é¢é–‹å§‹*/
 
-#portfolio,
-#contact {
+#portfolio,#personal {
     padding: 50px 0 100px 0;
     color: rgb(1, 22, 51);
-    text-align: center;
-    background: url(../images/paper-1126172_960_720.jpg) no-repeat;
+    background: url(../images/paper-1126172_960_720.jpg);
     background-size: cover;
+    text-align: center;
 }
 
 .portfolioHead,
@@ -570,13 +591,13 @@ header {
 
 
 
-/*×÷Æ·í“Ãæ½YÊø*/
+/*ä½œå“é é¢çµæŸ*/
 
 
-/*¼¼ÄÜí“Ãæé_Ê¼*/
+/*æŠ€èƒ½é é¢é–‹å§‹*/
 
 #skills,
-#personal {
+#contact {
     text-align: center;
     color: rgb(200, 200, 200);
     padding: 50px 0 100px 0;
@@ -610,9 +631,15 @@ header {
     height: 30px;
 }
 
-#skills p {
-    margin: 40px 0;
+#skills ul {
+    width: 60%;
+    display: inline-block;
+}
+
+#skills li {
+    margin: 20px 0;
     font-size: 1.8rem;
+    text-align: left;
 }
 
 .scrollFadeIn {
@@ -637,10 +664,10 @@ header {
 }
 
 
-/*¼¼ÄÜí“Ãæ½YÊø*/
+/*æŠ€èƒ½é é¢çµæŸ*/
 
 
-/*Â“½jí“Ãæé_Ê¼*/
+/*è¯çµ¡é é¢é–‹å§‹*/
 
 #contact {
     position: relative;
@@ -651,7 +678,7 @@ header {
     width: 50%;
     margin: 0 auto;
     border: none;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 footer {
@@ -668,7 +695,7 @@ footer a {
 
 
 
-/*Â“½jí“Ãæ½YÊø*/
+/*è¯çµ¡é é¢çµæŸ*/
 
 
 /*RWD*/
@@ -721,8 +748,11 @@ footer a {
     }
 
     .portTable {
-        width: 100%;
+        width: 80%;
         display: block;
+    }
+    .portTable:nth-of-type(2) {
+        width: 80%;
     }
 
     .portbox {
