@@ -421,15 +421,15 @@ header {
 .perImg-1 {
     -webkit-transform: translate(-100%,0);
             transform: translate(-100%,0);
-    -webkit-transition: 2s linear transform,1.2s opacity linear;
-    transition: 2s linear transform,1.2s opacity linear;
+    -webkit-transition: 2s linear transform,2s opacity linear;
+    transition: 2s linear transform,2s opacity linear;
 }
 
 .perImg-2, .perImg-3, .perImg-4, .perImg-5, .perImg-6{
     position: absolute;
     top: 0;
-    -webkit-transition: 2s linear transform,1.2s opacity linear;
-    transition: 2s linear transform,1.2s opacity linear;
+    -webkit-transition: 2s linear transform,2s opacity linear;
+    transition: 2s linear transform,2s opacity linear;
 }
 .perImg-2 {
     -webkit-transform: translate(0%,0%);
@@ -451,7 +451,6 @@ header {
     -webkit-transform: translate(400%,0%);
             transform: translate(400%,0%);
 }
-
 
 .personalAboutme {
     width: 70%;
@@ -793,3 +792,5 @@ footer a {
 
 
 /*RWD*/
+
+

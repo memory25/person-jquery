@@ -1,6 +1,8 @@
-var carouselCount = 0,
-    carouselTime, personalImgCarousel = ["-100%", "0", "100%", "200%", "300%", "400%"],
-    personalImgOpac = ["0", "1", "0", "1", "1", "1"];
+var carouselCount = 0 /*輪播 分配圖片順序對應的位置*/ ,
+    carouselTime /*輪播settimeout*/ , personalImgCarousel = ["-100%", "0", "100%", "200%", "300%", "400%"] /*輪播的各圖片位置*/ ,
+    personalImgOpac = ["0", "1", "0", "1", "1", "1"] /*輪播各圖片的透明度*/ ;
+
+
 $(document).ready(function() {
     $(".navBars").click(function() {
         $(".navTopList").slideToggle();
@@ -46,7 +48,7 @@ $(document).ready(function() {
             /*元素所在高度 + 元素的高度   = 元素所在的底部之高度 +1為小數問題*/
             if ($(document).scrollTop() + 1 >= $(this).offset().top && $(document).scrollTop() + 1 < ($(this).offset().top + $(this).outerHeight())) {
                 $($(this).data("navtopchoose")).addClass("linkColor2");
-                console.log($(this).offset().top + $(this).outerHeight())
+                /*console.log($(this).offset().top + $(this).outerHeight())*/
             } else {
                 $($(this).data("navtopchoose")).removeClass("linkColor2");
             }
@@ -62,7 +64,7 @@ $(document).ready(function() {
         })
 
         /*輪播照片一開始從左邊淡入*/
-        if($(document).scrollTop() >= $("#personal").offset().top - windowHeight / 2){
+        if ($(document).scrollTop() >= $("#personal").offset().top - windowHeight / 2) {
             $(".personalImg").addClass("scrollFadeLToR");
         }
         /*輪播照片一開始從左邊淡入*/
@@ -83,10 +85,21 @@ $(document).ready(function() {
 
     /*about 照片輪播*/
     personalCarousel()
+
     function personalCarousel() {
-        console.log(personalImgCarousel + ",,," )
+        console.log(personalImgCarousel + ",,,")
         $(".imgCarousel").each(function() {
-            $(this).css({ "transform": "translate(" + personalImgCarousel[carouselCount] + ",0%)", "opacity": personalImgOpac[carouselCount++] })
+            /*讓最後一個隱藏時0s隱藏*/
+            if (personalImgCarousel[carouselCount] == "-100%") {
+                $(this).css({ "transition": "0s" })
+            }
+
+            $(this).css({ "transform": "translate(" + personalImgCarousel[carouselCount] + ",0%)", "opacity": personalImgOpac[carouselCount] })
+
+            /*讓最後一個隱藏時0s隱藏後  調回2s*/
+            if (personalImgCarousel[carouselCount++] == "0") {
+                $(this).css({ "transition": "2s linear transform,2s opacity linear" })
+            }
         })
         carouselCount = 0
         /*                $(".perImg-3").css({"transform":"translate(" + personalImgCarousel[2] + ",0%)","z-index":personalImgZIndex[2]})
@@ -98,25 +111,50 @@ $(document).ready(function() {
         personalImgCarousel.splice(0, 1)
         personalImgOpac.push(personalImgOpac[0])
         personalImgOpac.splice(0, 1)
+        /*把陣列第一個元素拿到最後一個*/
+
         //    carouselTime = setTimeout("personalCarousel()", 3000)
         carouselTime = setTimeout(function() {
             personalCarousel()
         }, 3000)
     }
 
-    $(".personalImg").hover(function(){
+    $(".imgCarousel").hover(function() {
         clearTimeout(carouselTime)
-                
-            },function(){
-                carouselTime = setTimeout(function() {
+        /*動態完全停止動畫*/
+        var tempTrans, i, tempCount = new Array();
+        $(".imgCarousel").each(function() {
+            tempTrans = window.getComputedStyle(this).getPropertyValue("transform");
+            i = tempTrans.length - 1;
+            for (; tempCount.length < 2; i--) {
+                if (tempTrans[i] == ",") {
+                    tempCount.push(i)
+                }
+            }
+            $(this).css({ "transform": "translate(" + tempTrans.substring(tempCount[1] + 2, tempCount[0]) + "px," + tempTrans.substring(tempCount[0] + 2, tempTrans.length - 1) + ")", "opacity": window.getComputedStyle(this).getPropertyValue("opacity") })
+            tempCount = []
+        })
+        $(this).css({ "transform": window.getComputedStyle(this).getPropertyValue("transform") + " rotate(10deg)" })
+        /*動態完全停止動畫*/
+    }, function() {
+        carouselTime = setTimeout(function() {
+            personalImgCarousel.splice(0, 0, personalImgCarousel[5])
+            personalImgCarousel.splice(6, 1)
+            personalImgOpac.splice(0, 0, personalImgOpac[5])
+            personalImgOpac.splice(6, 1)
+            /*防止暫停後 不流暢的直接執行本來預計的下一個， 陣列所有位置往前移一輪*/
             personalCarousel()
-        }, 400)
+        }, 100)
+
     })
-    $(".imgCarousel").hover(function(){
-        $(this).css({"transform":"translate(" + personalImgCarousel[$(this).data("num")] + ",0%) rotate(-10deg)"})
-    },function(){
-        $(this).css({"transform":"translate(" + personalImgCarousel[$(this).data("num")] + ",0%) rotate(0deg)"})
-    })
+
+    /*            $(".imgCarousel").hover(function(){
+                    $(this).css({"transform":"translate(" + personalImgCarousel[$(this).data("num")] + ",0%) rotate(-10deg)"})
+                    console.log(1)
+                },function(){
+                    $(this).css({"transform":"translate(" + personalImgCarousel[$(this).data("num")] + ",0%) rotate(0deg)"})
+                })*/
+
     /*about 照片輪播*/
 
 
@@ -141,5 +179,5 @@ $(document).ready(function() {
     })
 
 
-    
+
 })
