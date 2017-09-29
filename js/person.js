@@ -8,16 +8,19 @@ $(document).ready(function() {
         $(".navTopList").slideToggle();
     })
 
+
+ 
     $(".homeJump a").click(function(e) {
         e.preventDefault();
-        $("body").animate({ "scrollTop": $($(this).attr("href")).offset().top }, 1000)
+        $("html,body").animate({ "scrollTop": $($(this).attr("href")).offset().top }, 1000)
     })
+
 
     /*導覽列點選後 慢慢滑動至目的*/
     $("#navTop a").each(function() {
         $(this).click(function(e) {
             e.preventDefault();
-            $("body").animate({ "scrollTop": $($(this).attr("href")).offset().top }, 1000)
+            $("html,body").animate({ "scrollTop": $($(this).attr("href")).offset().top }, 1000)
         })
     })
     /*導覽列點選後 慢慢滑動至目的*/
