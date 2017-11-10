@@ -531,7 +531,7 @@ header {
     font-size: 0;
 }
 .portTable:nth-of-type(2) {
-    width: 50%;
+    width: 75%;
 }
 .portbox {
     display: table-cell;
